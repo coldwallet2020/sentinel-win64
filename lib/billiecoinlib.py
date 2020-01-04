@@ -20,8 +20,8 @@ def is_valid_billiecoin_address(address, network='mainnet'):
     # base58 encoded bytes should be 25.  This means the number of characters
     # in the encoding should be about 34 ( 25 * log2( 256 ) / log2( 58 ) ).
 
-    # Support billiecoin address (T-address on testnet and S-address on mainnet)
-    billiecoin_version = 63 if network == 'testnet' else 55
+    # Support billiecoin address (S-address on testnet and B-address on mainnet)
+    billiecoin_version = 63 if network == 'testnet' else 25
 
     # Support bitcoin address (m-address or n-address on testnet and 1-address on mainnet)
     bitcoin_version = 111 if network == 'testnet' else 0
