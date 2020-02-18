@@ -97,7 +97,7 @@ def parse_masternode_status_vin(status_vin_string):
     return vin
 
 
-def create_superblock(proposals, event_block_height, budget_max, sb_epoch_time, maxgovobjdatasize):
+def create_superblock(proposals, event_block_height, budget_max, sb_epoch_time):
     from models import Superblock, GovernanceObject, Proposal
     from constants import SUPERBLOCK_FUDGE_WINDOW
 
@@ -170,7 +170,7 @@ def create_superblock(proposals, event_block_height, budget_max, sb_epoch_time, 
         )
         data_size = len(sb_temp.billiecoind_serialise())
 
-        if data_size > maxgovobjdatasize:
+        if data_size > 16384:
             printdbg("MAX_GOVERNANCE_OBJECT_DATA_SIZE limit reached!")
             break
 
